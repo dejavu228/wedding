@@ -1,0 +1,630 @@
+/* ==========================================================================
+   СВАДЬБА ИСЛАМА И ЖАСМИНЫ — СТИЛИ
+   ==========================================================================
+   Палитра (нежная свадебная):
+   --milk       #FBF7F0  тёплый молочный (основной светлый фон)
+   --cream      #F3EAD9  кремовый (альтернативные секции)
+   --powder     #EFE0CE  пудровый (мелкие акцентные поверхности)
+   --brown      #6B5240  тёплый коричневый (основной текст)
+   --brown-dark #4A3728  тёмно-коричневый (заголовки)
+   --gold       #C6A15B  золотистый акцент
+   --gold-soft  #E4D0A0  мягкая золотистая линия
+   ========================================================================== */
+
+:root {
+  --milk: #FBF7F0;
+  --cream: #F3EAD9;
+  --powder: #EFE0CE;
+  --brown: #6B5240;
+  --brown-dark: #4A3728;
+  --gold: #C6A15B;
+  --gold-soft: #E4D0A0;
+
+  --font-serif: 'Cormorant', Georgia, serif;
+  --font-script: 'Marck Script', cursive;
+  --font-body: 'Montserrat', -apple-system, sans-serif;
+}
+
+/* ---------- Сброс и базовые настройки ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--brown);
+  background: var(--milk);
+  overflow-x: hidden;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.container--narrow {
+  max-width: 560px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section--milk {
+  background: var(--milk);
+}
+
+.section--cream {
+  background: var(--cream);
+}
+
+.section__eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--brown-dark);
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+
+.heart-mark {
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+/* ---------- Плавное появление элементов при прокрутке ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   1. ГЛАВНЫЙ ЭКРАН (HERO)
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(198, 161, 91, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(198, 161, 91, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--milk) 0%, var(--cream) 100%);
+  overflow: hidden;
+  padding: 40px 24px;
+}
+
+/* Декоративные тонкие "цветочные" элементы по краям (чистый CSS/SVG, без фото пары) */
+.hero__ornament {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.55;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cg stroke='%23C6A15B' stroke-width='1.1'%3E%3Cpath d='M10 190 C 40 140, 30 90, 70 50 C 100 20, 140 15, 190 10'/%3E%3Ccircle cx='70' cy='50' r='9'/%3E%3Ccircle cx='95' cy='34' r='6'/%3E%3Ccircle cx='118' cy='22' r='5'/%3E%3Cpath d='M55 95 C 40 100, 30 115, 25 135'/%3E%3Ccircle cx='25' cy='135' r='5'/%3E%3Cpath d='M100 45 C 108 60, 100 75, 85 82'/%3E%3Ccircle cx='85' cy='82' r='4'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero__ornament--tl {
+  top: -10px;
+  left: -30px;
+  transform: rotate(0deg);
+}
+
+.hero__ornament--br {
+  bottom: -10px;
+  right: -30px;
+  transform: rotate(180deg);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  animation: fade-in-down 1s ease both;
+}
+
+.hero__names {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 13vw, 6rem);
+  color: var(--brown-dark);
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  animation: fade-in-up 1.1s ease both 0.15s;
+}
+
+.hero__amp {
+  font-size: 0.5em;
+  color: var(--gold);
+  margin: -6px 0;
+}
+
+.hero__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 28px 0 22px;
+  animation: fade-in 1.2s ease both 0.4s;
+}
+
+.hero__divider-line {
+  width: 46px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.hero__divider-heart {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.hero__date {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  letter-spacing: 0.18em;
+  color: var(--brown);
+  animation: fade-in 1.2s ease both 0.55s;
+}
+
+.hero__city {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: fade-in 1.2s ease both 0.7s;
+}
+
+/* Анимированная стрелка прокрутки */
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.hero__scroll-arrow {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 1.5px solid var(--gold);
+  border-bottom: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
+  50% { transform: translateY(8px) rotate(45deg); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__eyebrow, .hero__names, .hero__divider, .hero__date, .hero__city {
+    animation: none;
+  }
+  .hero__scroll-arrow {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   2. ОБРАЩЕНИЕ К ГОСТЯМ
+   ========================================================================== */
+
+.greeting__text {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  color: var(--brown);
+}
+
+.greeting__text:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   3. ДАТА СВАДЬБЫ
+   ========================================================================== */
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.date-block__day {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(5rem, 22vw, 9rem);
+  color: var(--brown-dark);
+  position: relative;
+}
+
+.date-block__month {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: -8px;
+}
+
+.date-block__year {
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  color: var(--brown);
+  margin-top: 10px;
+}
+
+.date-block__meta {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.date-block__dot {
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   4. ТАЙМЕР ДО СВАДЬБЫ
+   ========================================================================== */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 4vw, 28px);
+  flex-wrap: wrap;
+}
+
+.countdown__item {
+  min-width: 66px;
+  background: var(--milk);
+  border: 1px solid var(--gold-soft);
+  border-radius: 10px;
+  padding: 18px 10px;
+}
+
+.countdown__value {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  color: var(--brown-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown__label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.countdown__done {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--brown-dark);
+}
+
+/* ==========================================================================
+   5. РОМАНТИЧЕСКИЕ ФОТОГРАФИИ
+   ========================================================================== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.gallery__item {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 12px 28px -18px rgba(74, 55, 40, 0.35);
+  transition: transform 0.6s ease;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__item:hover {
+  transform: translateY(-4px);
+}
+
+@media (min-width: 720px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .gallery__item--tall {
+    grid-row: span 2;
+    aspect-ratio: 4 / 6.4;
+  }
+}
+
+/* ==========================================================================
+   6. МЕСТО ПРОВЕДЕНИЯ
+   ========================================================================== */
+
+.venue__lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.venue__name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  color: var(--brown-dark);
+  margin: 10px 0 20px;
+  line-height: 1.35;
+}
+
+.venue__address {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.venue__time {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--brown);
+  margin-bottom: 32px;
+}
+
+.button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--brown-dark);
+  color: var(--milk);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   11. ПОЖЕЛАНИЕ ГОСТЯМ
+   ========================================================================== */
+
+.wish__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--brown-dark);
+  margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   12. ФИНАЛЬНЫЙ БЛОК
+   ========================================================================== */
+
+.final {
+  position: relative;
+  padding: 120px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--milk) 100%);
+  overflow: hidden;
+}
+
+.final__ornament {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cg stroke='%23C6A15B' stroke-width='1.1'%3E%3Cpath d='M10 190 C 40 140, 30 90, 70 50 C 100 20, 140 15, 190 10'/%3E%3Ccircle cx='70' cy='50' r='9'/%3E%3Ccircle cx='95' cy='34' r='6'/%3E%3Ccircle cx='118' cy='22' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.final__ornament--tl {
+  top: -20px;
+  left: -20px;
+}
+
+.final__ornament--br {
+  bottom: -20px;
+  right: -20px;
+  transform: rotate(180deg);
+}
+
+.final__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.final__text {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.final__names {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  color: var(--brown-dark);
+  margin-top: 36px;
+}
+
+.final__date {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   КНОПКА УПРАВЛЕНИЯ МУЗЫКОЙ
+   ========================================================================== */
+
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--milk);
+  border: 1px solid var(--gold-soft);
+  box-shadow: 0 8px 20px -10px rgba(74, 55, 40, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.06);
+}
+
+.music-toggle.is-playing .music-icon {
+  animation: music-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-toggle.is-playing .music-icon {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   АДАПТАЦИЯ ДЛЯ БОЛЬШИХ ЭКРАНОВ
+   ========================================================================== */
+
+@media (min-width: 900px) {
+  .section {
+    padding: 130px 0;
+  }
+  .hero__ornament {
+    width: 300px;
+    height: 300px;
+  }
+}

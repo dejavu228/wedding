@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Свадьба Ислама и Жасмины | 03.08.2026</title>
+  <meta name="description" content="Приглашение на свадьбу Ислама и Жасмины. 3 августа 2026 года, ресторан Наурыз 777, Шымкент.">
+
+  <!-- Open Graph: для красивого отображения ссылки в WhatsApp, Telegram и других мессенджерах -->
+  <meta property="og:title" content="Ислам & Жасмина | 03.08.2026">
+  <meta property="og:description" content="Мы будем счастливы разделить этот особенный день вместе с вами!">
+  <meta property="og:type" content="website">
+  <!-- ВАЖНО: после публикации сайта укажите здесь АБСОЛЮТНЫЙ URL (например https://ваш-домен/images/preview.jpg),
+       иначе превью ссылки в мессенджерах может не отобразиться -->
+  <meta property="og:image" content="images/preview.jpg">
+
+  <link rel="icon" href="data:,">
+
+  <!-- Шрифты: Cormorant (заголовки), Marck Script (каллиграфические имена), Montserrat (основной текст) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Marck+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Кнопка управления фоновой музыкой (зафиксирована в углу экрана) -->
+  <button id="music-toggle" class="music-toggle" aria-label="Включить или выключить музыку" aria-pressed="false">
+    <span class="music-icon">♫</span>
+  </button>
+
+  <!-- Аудио с фоновой свадебной музыкой. Файл можно заменить в папке music/ -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="music/wedding.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ========================================
+       1. ГЛАВНЫЙ ЭКРАН
+  ========================================= -->
+  <section class="hero" id="hero">
+    <div class="hero__ornament hero__ornament--tl" aria-hidden="true"></div>
+    <div class="hero__ornament hero__ornament--br" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Мы женимся!</p>
+
+      <h1 class="hero__names">
+        <span>Ислам</span>
+        <span class="hero__amp">&amp;</span>
+        <span>Жасмина</span>
+      </h1>
+
+      <div class="hero__divider" aria-hidden="true">
+        <span class="hero__divider-line"></span>
+        <span class="hero__divider-heart">♡</span>
+        <span class="hero__divider-line"></span>
+      </div>
+
+      <p class="hero__date">03 • 08 • 2026</p>
+      <p class="hero__city">Шымкент</p>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-arrow"></span>
+    </div>
+  </section>
+
+  <!-- ========================================
+       2. ОБРАЩЕНИЕ К ГОСТЯМ
+  ========================================= -->
+  <section class="section section--milk" id="greeting">
+    <div class="container container--narrow reveal">
+      <h2 class="section__title">Дорогие родные и близкие!</h2>
+      <p class="greeting__text">
+        Совсем скоро состоится один из самых важных и счастливых дней в нашей жизни.
+      </p>
+      <p class="greeting__text">
+        Мы будем счастливы разделить этот особенный момент с самыми близкими
+        и дорогими для нас людьми.
+      </p>
+      <p class="greeting__text">
+        С большой радостью приглашаем вас провести этот прекрасный день вместе с нами!
+      </p>
+      <span class="heart-mark reveal" aria-hidden="true">♡</span>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3. ДАТА СВАДЬБЫ
+  ========================================= -->
+  <section class="section section--cream" id="date">
+    <div class="container reveal">
+      <p class="section__eyebrow">Наша свадьба</p>
+      <div class="date-block">
+        <span class="date-block__day">03</span>
+        <span class="date-block__month">августа</span>
+        <span class="date-block__year">2026</span>
+      </div>
+      <div class="date-block__meta">
+        <span>понедельник</span>
+        <span class="date-block__dot" aria-hidden="true">•</span>
+        <span>19:00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       4. ТАЙМЕР ДО СВАДЬБЫ
+  ========================================= -->
+  <section class="section section--milk" id="countdown">
+    <div class="container reveal">
+      <h2 class="section__title">До нашей свадьбы осталось</h2>
+
+      <div class="countdown" id="countdown-timer">
+        <div class="countdown__item">
+          <span class="countdown__value" id="cd-days">00</span>
+          <span class="countdown__label">Дней</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__value" id="cd-hours">00</span>
+          <span class="countdown__label">Часов</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__value" id="cd-minutes">00</span>
+          <span class="countdown__label">Минут</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__value" id="cd-seconds">00</span>
+          <span class="countdown__label">Секунд</span>
+        </div>
+      </div>
+
+      <!-- Надпись показывается вместо таймера, когда наступит день свадьбы -->
+      <p class="countdown__done" id="countdown-done" hidden>Наш особенный день настал! ❤️</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       5. РОМАНТИЧЕСКИЕ ФОТОГРАФИИ
+  ========================================= -->
+  <section class="section section--cream" id="gallery">
+    <div class="container reveal">
+      <p class="section__eyebrow">Наши моменты</p>
+      <div class="gallery">
+        <!-- Замените файлы photo1.jpg, photo2.jpg, photo3.jpg в папке images/ на свои фотографии -->
+        <div class="gallery__item gallery__item--tall reveal">
+          <img src="images/photo1.jpg" alt="Ислам и Жасмина" loading="lazy">
+        </div>
+        <div class="gallery__item reveal">
+          <img src="images/photo2.jpg" alt="Ислам и Жасмина" loading="lazy">
+        </div>
+        <div class="gallery__item reveal">
+          <img src="images/photo3.jpg" alt="Ислам и Жасмина" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       6. МЕСТО ПРОВЕДЕНИЯ
+  ========================================= -->
+  <section class="section section--milk" id="venue">
+    <div class="container container--narrow reveal">
+      <p class="section__eyebrow">Место проведения</p>
+      <p class="venue__lead">Будем ждать вас</p>
+
+      <h2 class="venue__name">Ресторан<br>«Наурыз 777»</h2>
+
+      <p class="venue__address">
+        г. Шымкент<br>
+        ул. Тауке Хана, 191
+      </p>
+
+      <p class="venue__time">Начало в 19:00</p>
+
+      <!-- Ссылка ведёт на 2GIS, открывается в новой вкладке. Геолокация не запрашивается. -->
+      <a class="button"
+         href="https://2gis.kz/shymkent/geo/70000001026014348/69.631263,42.310591"
+         target="_blank" rel="noopener noreferrer">
+        Открыть в 2GIS
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       11. ПОЖЕЛАНИЕ ГОСТЯМ
+  ========================================= -->
+  <section class="section section--cream" id="wish">
+    <div class="container container--narrow reveal">
+      <p class="wish__text">
+        Для нас самое главное — разделить этот счастливый день вместе с вами.
+      </p>
+      <p class="wish__text">
+        Берите с собой хорошее настроение, улыбки и желание праздновать вместе с нами!
+      </p>
+      <span class="heart-mark reveal" aria-hidden="true">♡</span>
+    </div>
+  </section>
+
+  <!-- ========================================
+       12. ФИНАЛЬНЫЙ БЛОК
+  ========================================= -->
+  <section class="final" id="final">
+    <div class="final__ornament final__ornament--tl" aria-hidden="true"></div>
+    <div class="final__ornament final__ornament--br" aria-hidden="true"></div>
+
+    <div class="final__content reveal">
+      <p class="final__text">
+        Этот день станет для нас ещё счастливее, если рядом будут самые
+        дорогие и близкие люди.
+      </p>
+      <p class="final__text">
+        С нетерпением ждём встречи с вами на нашем празднике!
+      </p>
+
+      <p class="final__names">Ислам &amp; Жасмина</p>
+      <p class="final__date">03.08.2026</p>
+      <span class="heart-mark" aria-hidden="true">♡</span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
