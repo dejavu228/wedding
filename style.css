@@ -628,3 +628,8 @@ button {
     height: 300px;
   }
 }
+
+.date-block__day {
+    position: relative;
+    top: -35px;
+}
